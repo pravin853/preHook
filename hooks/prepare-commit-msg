@@ -26,5 +26,6 @@ done
 [[ $(cat $1) =~ [A-Z]+-[0-9]+.* ]] || {
     echo >&2 "ERROR: Commit message requires JIRA key. Example: \"ABC-123: Test Commit\""
     exit 1
+	
 }
 
