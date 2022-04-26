@@ -1,0 +1,7 @@
+#!/bin/bash
+## Message is as per the "prescribed" format
+[[ $(cat $1) =~ [A-Z]+-[0-9]+([[:space:]]*,[[:space:]]*[A-Z]+-[0-9]+)*[[:space:]]:[[:space:]]*+.* ]] || {
+    echo "This is from Hooks folder"
+    echo >&2 "ERROR: Commit message requires JIRA ID. Example: \"ABC-123: Test Commit\""
+    exit 1
+}
