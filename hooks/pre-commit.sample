@@ -1,0 +1,49 @@
+#!/bin/bash
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+pushebranch=$(git rev-parse --symbolic --abbrev-ref $1)
+
+
+
+echo "this is from hooks folder"
+echo "Current Branch is $current_branch"
+echo "Branch is $BRANCH"
+echo "pushed branch $pushebranch"
+echo "$remote_ref"
+
+script="$0"
+first="$1"
+second="$2"
+tenth="${10}"
+echo "The script name : $script"
+echo "The first argument :  $first"
+echo "The second argument : $second"
+echo "The tenth and eleventh argument : $tenth and ${11}"
+
+while read local_ref local_sha remote_ref remote_sha 
+do 
+    echo $local_ref
+    echo $local_sha 
+    echo $remote_ref
+    echo $remote_sha
+
+done
+	 
+	 
+	
+	 
+	 if [[ $(cat $1) =~ [A-Z]+-[0-9]+.*]] then
+        echo "frm pre commit 25"
+    echo >&2 "ERROR: Commit message requires JIRA key. Example: \"ABC-123: Test Commit\""
+    exit 1
+     fi
+
+
+[[ $(cat $1) =~ [A-Z]+-[0-9]+.* ]] || {
+echo "frm pre commit"
+    echo >&2 "ERROR: Commit message requires JIRA key. Example: \"ABC-123: Test Commit\""
+    exit 1
+	}
+	exit 0
+
