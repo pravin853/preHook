@@ -1,0 +1,20 @@
+#!/bin/bash                                                                      
+
+set -e                                                                           
+                                             
+
+prevHEAD=$1                                                                      
+newHEAD=$2                                                                       
+checkoutType=$3                                                                  
+
+[[ $checkoutType == 1 ]] && checkoutType='branch' ||                             
+                            checkoutType='file' ;                                
+
+echo 'Checkout type: '$checkoutType                                              
+echo '    prev HEAD: '`git name-rev --name-only $prevHEAD`                       
+echo '     new HEAD: '`git name-rev --name-only $newHEAD`
+
+echo "started checkout from coustom hook golder"
+
+echo `git config -f .gitconfig core.hooksPath hooks` 
+echo `git config --local include.path ../.gitconfig`
