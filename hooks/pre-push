@@ -11,10 +11,14 @@ do
     echo $remote_ref
     echo $local_ref
     
-     if [ "$remote_ref" == "refs/heads/master" ]; then
+     if [ "$remote_ref" == "refs/heads/master1" ]; then
         echo "Pushing to branch \"master\" is forbidden"
         exit 1
      fi
 
      if [ "$remote_ref" == "refs/heads/develop" ]; then
-        echo "Pushing to branch \"de
+        echo "Pushing to branch \"develop\" is forbidden"
+		exit 1
+	 fi
+	 
+done
